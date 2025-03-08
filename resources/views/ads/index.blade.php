@@ -1,3 +1,3 @@
 <x-layout>
-    <livewire:ad-index/>
+    <livewire:ad-index />
 </x-layout>

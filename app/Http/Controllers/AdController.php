@@ -3,10 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ad;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
 class AdController extends Controller
 {
+
+    public function byCategory(Tag $tag) {
+        return view('ads.byCategory', ['ads' => $tag->ads()->paginate(8), 'tag' => $tag]);
+    }
     /**
      * Display a listing of the resource.
      */
@@ -36,7 +41,7 @@ class AdController extends Controller
      */
     public function show(Ad $ad)
     {
-        //
+        return view('ads.show', compact('ad'));
     }
 
     /**

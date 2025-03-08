@@ -1,23 +1,24 @@
 <div>
-    {{-- Care about people's approval and you will be their prisoner. --}}
-    <div class="container">
-        <p class="h1 my-5 fw-bold text-white"> Annunci </p>
-    <div class="row justify-content-center">
-        {{-- Itera su ciascun annuncio --}}
-        @foreach ($ads as $ad)
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4"> <!-- Impostazione delle colonne -->
-                <div class="card" style="width: 18rem;">
-                    <img src="..." class="card-img-top" alt="immagine annuncio">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ $ad->title }}</h5>
-                        <p class="card-text">{{ $ad->price }}</p>
-                        <a href="#" class="btn btn-primary">Leggi di più</a>
-                    </div>
+    <!-- Annunci -->
+    <section class="container my-5">
+        <h2 class="text-center text-white display-6 mb-5">Annunci</h2>
+        <div class="row">
+            @forelse($ads as $ad)
+            <div class="col-12 col-sm-6 col-lg-4 mb-4">
+                <x-ad-card :ad="$ad" />
+            </div>
+            @empty
+            <div class="col-12">
+                <h3 class="text-center">
+                    Non sono ancora stati caricati articoli
+                </h3>
+            </div>
+            @endforelse
+            <div class="d-flex justify-content-center">
+                <div>
+                    {{ $ads->links() }}
                 </div>
             </div>
-        @endforeach
-    </div>
-</div>
-
-
+        </div>
+    </section>
 </div>

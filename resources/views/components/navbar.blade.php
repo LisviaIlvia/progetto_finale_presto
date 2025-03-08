@@ -19,44 +19,59 @@
                         <i class="fas fa-bullhorn"></i> Annunci
                     </a>
                 </li>
+                <li class="nav-item dropdown">
+                    <button class="btn text-white dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        Categorie
+                    </button>
+                    <ul class="dropdown-menu ">
+                        @foreach ($tags as $tag)
+                        <li><a class="dropdown-item" href="{{ route('byCategory', ['tag' => $tag]) }}">
+                                {{ $tag->name }}</a>
+                        </li>
+                        @if (!$loop->last)
+                        <hr class="dropdown-divider">
+                        @endif
+                        @endforeach
+                    </ul>
+                </li>
             </ul>
 
             <ul class="navbar-nav">
                 @guest
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="{{ route('register') }}">
-                            <i class="fas fa-user-plus"></i> Registrati
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="{{ route('login') }}">
-                            <i class="fas fa-sign-in-alt"></i> Login
-                        </a>
-                    </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="{{ route('register') }}">
+                        <i class="fas fa-user-plus"></i> Registrati
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="{{ route('login') }}">
+                        <i class="fas fa-sign-in-alt"></i> Login
+                    </a>
+                </li>
                 @endguest
                 @auth
-                    <li class="nav-item">
-                        <a class="nav-link text-white " href="{{ route('create.ad') }}">
-                            <i class="fas fa-upload"></i> Pubblica Annuncio
-                        </a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-white " href="#" id="userDropdown"
-                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fas fa-user"></i> {{ Auth::user()->name }}
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end">
-                            <li>
-                                <a class="dropdown-item text-danger" href="{{ route('logout') }}"
-                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                    <i class="fas fa-sign-out-alt"></i> Logout
-                                </a>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                    @csrf
-                                </form>
-                            </li>
-                        </ul>
-                    </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white " href="{{ route('create.ad') }}">
+                        <i class="fas fa-upload"></i> Pubblica Annuncio
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-white " href="#" id="userDropdown"
+                        role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-user"></i> {{ Auth::user()->name }}
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li>
+                            <a class="dropdown-item text-danger" href="{{ route('logout') }}"
+                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                <i class="fas fa-sign-out-alt"></i> Logout
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        </li>
+                    </ul>
+                </li>
                 @endauth
             </ul>
         </div>
