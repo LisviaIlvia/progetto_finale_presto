@@ -30,7 +30,7 @@ class AdCreate extends Component
 
     #[Validate('required', message: 'Inserisci almeno un immagine.')]
     #[Validate(['images.*' => 'image|max:2048'])]
-    public $images = [];
+    public $images;
 
     public function store()
     {

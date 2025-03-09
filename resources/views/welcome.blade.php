@@ -1,4 +1,5 @@
 <x-layout>
+    <x-display-message/>
     <!-- Hero Section -->
     <header class="bg-danger text-white text-center py-5">
         <div class="container">

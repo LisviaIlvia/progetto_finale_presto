@@ -2,6 +2,16 @@ body {
     background: #007bff;
     background: linear-gradient(to right, #0062E6, #33AEFF);
   }
+
+  .height-custom {
+    min-height: 200px;
+  }
+  .rounded-pill-bg {
+    background-color: aqua;
+    color: black;
+    font-weight: bold;
+    padding: 0.3rem 0.6rem;
+}
   
   .card-img-left {
     width: 45%;
@@ -39,3 +49,16 @@ body {
     color: white !important;
     background-color: #3b5998;
   }
+
+  .navbar-nav .nav-item .badge {
+    position: relative; /* Impostiamo la posizione relativa per il badge */
+    top: -5px; /* Piccola correzione per l'allineamento verticale */
+    margin-left: 8px; /* Distanza tra la scritta e il badge */
+}
+
+@media (max-width: 768px) {
+    .navbar-nav .nav-item .badge {
+        top: 0; /* Rimuovi la correzione verticale sui dispositivi mobili */
+        margin-left: 5px; /* Mantieni una piccola distanza tra il testo e il badge */
+    }
+}

@@ -36,6 +36,7 @@
             <!-- Testo -->
             <div class="col-12 col-md-6">
               <h2 class="display-5 fw-bold text-danger">{{ $ad->title }}</h2>
+              <p>Autore: {{ $ad->user->name }}</p>
               <h4 class="text-muted fw-semibold mt-2">€{{ number_format($ad->price, 2, ',', '.') }}</h4>
               <p class="mt-3 article-text text-secondary fs-5">{{ $ad->description }}</p>
 

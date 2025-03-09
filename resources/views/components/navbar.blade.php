@@ -55,6 +55,14 @@
                         <i class="fas fa-upload"></i> Pubblica Annuncio
                     </a>
                 </li>
+                @if (Auth::user()->is_revisor)
+                <li class="nav-item">
+                    <a class="nav-link text-white me-4" href="{{ route('revisor.index') }}">
+                        Zona revisione
+                        <span class="badge bg-primary me-2">{{ \App\Models\Ad::toBeRevisedCount() }}</span>
+                    </a>
+                </li>
+                @endif
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-white " href="#" id="userDropdown"
                         role="button" data-bs-toggle="dropdown" aria-expanded="false">

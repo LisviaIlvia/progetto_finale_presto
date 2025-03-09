@@ -7,7 +7,7 @@
         <div class="card-body p-5">
           <h3 class="text-center mb-4 text-primary display-6">Inserisci Annuncio</h3>
 
-          <form wire:submit="store" >
+          <form wire:submit.prevent="store" >
             <div class="mb-3">
               <label for="title" class="form-label">Titolo</label>
               <input wire:model="title" type="text" class="form-control" id="title">
@@ -34,8 +34,8 @@
             <!-- Immagini Multiple -->
             <div class="mb-3">
               <label for="images" class="form-label fw-bold"><i class="bi bi-upload"></i> Immagini</label>
-              <input wire:model="images" type="file" class="form-control" id="images" accept="image/*" multiple>
-              <div class="text-danger">@error('images.*') {{ $message }} @enderror</div>
+              <input wire:model.defer="images" type="file" class="form-control" id="images" accept="image/*" multiple>
+              
 
               <div wire:loading wire:target="images" class="mt-4">Uploading...</div>
               @if ($images)
@@ -45,6 +45,7 @@
               </div>
               @endforeach
               @endif
+              <div class="text-danger">@error('images') {{ $message }} @enderror</div>
             </div>
 
             <hr class="my-4">

@@ -10,14 +10,14 @@ class AdController extends Controller
 {
 
     public function byCategory(Tag $tag) {
-        return view('ads.byCategory', ['ads' => $tag->ads()->paginate(8), 'tag' => $tag]);
+        return view('ads.byCategory', ['ads' => $tag->ads()->where('is_accepted', true)->paginate(8), 'tag' => $tag]);
     }
     /**
      * Display a listing of the resource.
      */
     public function index()
-    {
-        return view('ads.index');
+    {       
+        return view('ads.index', );
     }
 
     /**
