@@ -7,6 +7,7 @@ use App\Http\Controllers\RevisorController;
 
 // PublicController
 Route::get('/', [PublicController::class, 'welcome'])->name('homepage');
+Route::get('/search/ad', [PublicController::class, 'searchAd'])->name('ad.search');
 
 // AdController
 Route::get('/ad/create', [AdController::class, 'create'])->name('create.ad')->middleware('auth');

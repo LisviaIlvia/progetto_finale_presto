@@ -1,3 +1,3 @@
 <x-layout>
-    <livewire:ad-create/>
+    <livewire:ad-create />
 </x-layout>

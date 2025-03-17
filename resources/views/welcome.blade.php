@@ -29,7 +29,7 @@
                 </div>
                 @empty
                 <div class="col-12">
-                    <h3 class="text-center">
+                    <h3 class="text-center display-6 text-white">
                         Non sono ancora stati caricati articoli
                     </h3>
                 </div>

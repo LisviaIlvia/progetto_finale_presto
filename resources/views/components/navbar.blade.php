@@ -82,6 +82,15 @@
                 </li>
                 @endauth
             </ul>
+            <!-- FORM DI RICERCA -->
+            <form class="d-flex mx-3" role="search" method="GET" action="{{ route('ad.search') }}">
+                <div class="input-group">
+                    <input class="form-control rounded-start" type="search" name="query" placeholder="Cerca..." aria-label="Search">
+                    <button class="btn btn-light border" type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
 </nav>

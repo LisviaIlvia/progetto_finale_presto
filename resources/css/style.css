@@ -6,6 +6,9 @@ body {
   .height-custom {
     min-height: 200px;
   }
+  .height-custom-layout{
+    min-height: 500px;
+  }
   .rounded-pill-bg {
     background-color: aqua;
     color: black;

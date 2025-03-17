@@ -14,8 +14,10 @@
 
     <x-navbar />
     
-
-        {{ $slot }}
+<div class="height-custom-layout">
+{{ $slot }}
+</div>
+        
     <x-footer/>
 
 

@@ -9,7 +9,7 @@
             <div class="col-md-4">
                 <h5 class="fw-bold">Vuoi diventare revisore?</h5>
                 <p>Cliccando il bottone sottostante farai richiesta al nostro admin!</p>
-                <a href="{{ route('become.revisor') }}" class="btn btn-success mb-3"> doventa revisore</a>
+                <a href="{{ route('become.revisor') }}" class="btn btn-success mb-3"> diventa revisore</a>
             </div>
 
             <!-- Link Utili -->
