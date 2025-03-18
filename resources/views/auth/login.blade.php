@@ -9,7 +9,7 @@
               <!-- Background image for card set in CSS! -->
             </div>
             <div class="card-body p-4 p-sm-5">
-              <h5 class="card-title text-center mb-5 fw-light fs-5">Accedi</h5>
+              <h5 class="card-title text-center mb-5 fw-light fs-5">{{__('ui.login')}}</h5>
 
               <form action="{{ route('login') }}" method="POST">
                 @csrf
@@ -33,7 +33,7 @@
                 </div>
 
                 <div class="d-grid mb-2">
-                  <button class="btn btn-lg btn-primary btn-login fw-bold text-uppercase" type="submit">Accedi</button>
+                  <button class="btn btn-lg btn-primary btn-login fw-bold text-uppercase" type="submit">{{__('ui.login')}}</button>
                 </div>
 
                 <hr class="my-4">

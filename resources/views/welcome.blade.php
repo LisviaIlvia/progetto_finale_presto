@@ -3,15 +3,15 @@
     <!-- Hero Section -->
     <header class="bg-danger text-white text-center py-5">
         <div class="container">
-            <h1 class="fw-bold ">Benvenuto su Presto!</h1>
-            <p class="lead">Trova o pubblica annunci in pochi secondi</p>
+            <h1 class="fw-bold ">{{ __('ui.welcome') }}</h1>
+            <p class="lead">{{ __('ui.find_or_post') }}</p>
             @guest
             <a href="{{ route('register') }}" class="btn btn-light btn-lg">
-                <i class="fas fa-user-plus"></i> Registrati ora
+                <i class="fas fa-user-plus"></i> {{ __('ui.register_now') }}
             </a>
             @else
             <a href="{{ route('create.ad') }}" class="btn btn-light btn-lg">
-                <i class="fas fa-upload"></i> Pubblica un annuncio
+                <i class="fas fa-upload"></i> {{__('ui.post_ad')}}
             </a>
             @endguest
         </div>
@@ -19,7 +19,7 @@
 
     <!-- Annunci Recenti -->
     <section class="my-5">
-        <h2 class="text-center text-white display-6 mb-5">Ultimi Annunci</h2>
+        <h2 class="text-center text-white display-6 mb-5">{{__('ui.latest_ads')}}</h2>
         <div class="container">
             <div class="row">
                 {{-- Itera solo sugli ultimi 6 annunci --}}
@@ -30,7 +30,7 @@
                 @empty
                 <div class="col-12">
                     <h3 class="text-center display-6 text-white">
-                        Non sono ancora stati caricati articoli
+                    {{__('ui.no_ads')}}
                     </h3>
                 </div>
                 @endforelse

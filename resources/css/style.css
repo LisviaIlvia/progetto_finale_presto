@@ -3,6 +3,17 @@ body {
     background: linear-gradient(to right, #0062E6, #33AEFF);
   }
 
+.nav {
+    flex-wrap: wrap;
+} 
+
+.brand-name {
+  min-width: 120px; /* Adatta la larghezza secondo necessità */
+  white-space: nowrap; /* Evita che il testo vada a capo */
+}
+
+
+
   .height-custom {
     min-height: 200px;
   }

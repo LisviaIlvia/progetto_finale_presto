@@ -14,33 +14,60 @@ class AdCreate extends Component
 {
     use WithFileUploads;
 
-    #[Validate('required', message: 'Inserisci un titolo.')]
-    public $title;
+    // Costanti per i messaggi di validazione
+    public const VALIDATION_MESSAGES = [
+        'title_required' => 'validation.custom.title.required',
+        'price_required' => 'validation.custom.price.required',
+        'price_numeric' => 'validation.custom.price.numeric',
+        'price_decimal' => 'validation.custom.price.decimal',
+        'description_required' => 'validation.custom.description.required',
+        'images_required' => 'validation.custom.images.required',
+        'tag_required' => 'validation.custom.tag.required',
+        'success' => 'validation.custom.success'
+    ];
 
-    #[Validate('required', message: 'Inserisci il prezzo.')]
-    #[Validate('numeric', message: 'Il prezzo deve essere un numero.')]
-    #[Validate('decimal:2', message: 'Il prezzo deve avere massimo 2 decimali.')]
-    public $price;
+    // Variabili per i dati del form
+    public $title, $price, $description, $tag_id, $images = [];
 
-    #[Validate('required', message: 'Inserisci una descrizione.')]
-    public $description;
+    // Funzione di validazione
+    protected function rules()
+    {
+        return [
+            'title' => 'required',
+            'price' => 'required|numeric|decimal:2',
+            'description' => 'required',
+            'tag_id' => 'required',
+            'images' => 'required|array',
+            'images.*' => 'image|max:2048', // Per ogni immagine
+        ];
+    }
 
-    // Aggiungi una variabile per l'ID del tag
-    public $tag_id;
+    // Funzione di validazione personalizzata con i messaggi
+    protected function messages()
+    {
+        return [
+            'title.required' => __('validation.custom.title.required'),
+            'price.required' => __('validation.custom.price.required'),
+            'price.numeric' => __('validation.custom.price.numeric'),
+            'price.decimal' => __('validation.custom.price.decimal'),
+            'description.required' => __('validation.custom.description.required'),
+            'tag_id.required' => __('validation.custom.tag.required'),
+            'images.required' => __('validation.custom.images.required'),
+            'images.*.image' => __('validation.custom.images.image'),
+            'images.*.max' => __('validation.custom.images.max'),
+        ];
+    }
 
-    #[Validate('required', message: 'Inserisci almeno un immagine.')]
-    #[Validate(['images.*' => 'image|max:2048'])]
-    public $images = [];
 
     public function store()
     {
         $this->validate();
 
-     
-        
+
+
         // Verifica se è stato selezionato un tag
         if (!$this->tag_id) {
-            session()->flash('error', 'Devi selezionare un tag.');
+            session()->flash('error', __('validation.custom.tag.required'));
             return;
         }
 
@@ -61,11 +88,11 @@ class AdCreate extends Component
                     'path' => $path
                 ]);
             }
-            }
+        }
 
         $this->reset();
 
-        session()->flash('message', 'Annuncio caricato con successo!');
+        session()->flash('message', __('validation.custom.success'));
     }
 
     public function render()

@@ -1,6 +1,6 @@
 <x-layout>
     <section class="container my-5">
-        <h2 class="text-center text-white display-6 mb-5">Annunci della categoria
+        <h2 class="text-center text-white display-6 mb-5">{{__('ui.category_ads')}}
             <span class="display-6 fw-bold">{{ $tag->name }}</span>
         </h2>
         <div class="row justify-content-center align-items-center py-5">
@@ -11,10 +11,10 @@
             @empty
                 <div class="col-12 text-center">
                     <h3 class="display-6 text-white">
-                        Non sono ancora stati caricati articoli
+                    {{__('ui.no_items_uploaded')}}
                     </h3>
                     @auth
-                        <a href="{{ route('create.ad') }}" class="btn btn-danger my-5">Pubblica un annuncio</a>
+                        <a href="{{ route('create.ad') }}" class="btn btn-danger my-5">{{__('ui.post_ad')}}</a>
                     @endauth
                 </div>
             @endforelse

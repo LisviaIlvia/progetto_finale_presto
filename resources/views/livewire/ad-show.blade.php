@@ -36,16 +36,16 @@
             <!-- Testo -->
             <div class="col-12 col-md-6">
               <h2 class="display-5 fw-bold text-danger">{{ $ad->title }}</h2>
-              <p>Autore: {{ $ad->user->name }}</p>
+              <p><span class="fw-bold">{{ __('ui.author') }}:</span> {{ $ad->user->name }}</p>
               <h4 class="text-muted fw-semibold mt-2">€{{ number_format($ad->price, 2, ',', '.') }}</h4>
               <p class="mt-3 article-text text-secondary fs-5">{{ $ad->description }}</p>
 
               <div class="mt-4 d-flex gap-3">
                 <a href="{{ route('index.ad') }}" class="btn btn-outline-danger btn-lg px-4">
-                  <i class="fas fa-arrow-left"></i> Torna agli annunci
+                  <i class="fas fa-arrow-left"></i> {{__('ui.back_to_ads')}}
                 </a>
                 <a href="#" class="btn btn-danger btn-lg px-4">
-                  <i class="fas fa-shopping-cart"></i> Contatta il venditore
+                  <i class="fas fa-shopping-cart"></i> {{__('ui.contact_seller')}}
                 </a>
               </div>
             </div>

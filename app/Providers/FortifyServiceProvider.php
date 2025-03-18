@@ -75,14 +75,14 @@ class FortifyServiceProvider extends ServiceProvider
     
             if (!$user) {
                 throw ValidationException::withMessages([
-                    'email' => __('Questa email non è registrata.'),
+                    'email' => __('validation.custom.email.exists'),
                 ]);
             }
     
             // Controlliamo se la password è corretta
             if (!Hash::check($request->password, $user->password)) {
                 throw ValidationException::withMessages([
-                    'password' => __('La password è errata.'),
+                    'password' => __('validation.custom.password.incorrect'),
                 ]);
             }
     
