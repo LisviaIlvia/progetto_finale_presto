@@ -22,7 +22,7 @@ return [
     'search_placeholder' => 'Search...',
     'buy_and_sell' => 'Buy and sell in an instant!',
     'become_reviewer' => 'Do you want to become a reviewer?',
-    'become_reviewer_desc' => 'Clicking the button below will send a request to our admin!',
+    'become_reviewer_desc' => 'Click the button below and fill out the form!',
     'become_reviewer_btn' => 'Become a reviewer',
     'useful_links' => 'Useful Links',
     'about_us' => 'About Us',

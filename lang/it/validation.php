@@ -2,13 +2,17 @@
 
 return [
     'required' => 'Il campo :attribute è obbligatorio.',
-    'email' => 'Il campo :attribute deve essere un indirizzo email valido.',
+    'email' => [
+        'valid' => 'Il campo :attribute deve essere un indirizzo email valido.',
+        'exists' => 'La mail non è registrata.'
+    ],
     'min' => [
         'string' => 'Il campo :attribute deve contenere almeno :min caratteri.',
     ],
     'confirmed' => 'La conferma della :attribute non corrisponde.',
     'unique' => ':attribute è già in uso.',
     'password' => [
+        'incorrect' => 'La mail o la password sono errate.',
         'letters' => 'La password deve contenere almeno una lettera.',
         'numbers' => 'La password deve contenere almeno un numero.',
         'symbols' => 'La password deve contenere almeno un simbolo.',

@@ -9,7 +9,7 @@
             <div class="col-md-4">
                 <h5 class="fw-bold">{{__('ui.become_reviewer')}}</h5>
                 <p>{{__('ui.become_reviewer_desc')}}</p>
-                <a href="{{ route('become.revisor') }}" class="btn btn-success mb-3"> {{__('ui.become_reviewer_btn')}}</a>
+                <a href="{{ route('work.with.us') }}" class="btn btn-success mb-3"> {{__('ui.become_reviewer_btn')}}</a>
             </div>
 
             <!-- Link Utili -->
@@ -18,7 +18,7 @@
                 <ul class="list-unstyled">
                     <li><a href="#" class="text-white text-decoration-none">{{__('ui.about_us')}}</a></li>
                     <li><a href="#" class="text-white text-decoration-none">{{__('ui.contacts')}}</a></li>
-                    <li><a href="" class="text-white text-decoration-none fw-bold">{{__('ui.work_with_us')}}</a></li>
+                    <li><a href="{{ route('work.with.us') }}" class="text-white text-decoration-none fw-bold">{{__('ui.work_with_us')}}</a></li>
                 </ul>
             </div>
 

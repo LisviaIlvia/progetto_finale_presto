@@ -22,7 +22,8 @@ Route::get('/category/{tag}', [AdController::class, 'byCategory'])->name('byCate
 Route::get('/revisor/index', [RevisorController::class, 'index'])->middleware('isRevisor')->name('revisor.index');
 Route::patch('/accept/{ad}', [RevisorController::class, 'accept'])->name('accept');
 Route::patch('/reject/{ad}', [RevisorController::class, 'reject'])->name('reject');
-Route::get('/revisor/request', [RevisorController::class, 'becomeRevisor'])->name('become.revisor')->middleware('auth');
+Route::get('/revisor/work-with-us', [RevisorController::class, 'workWithUs'])->name('work.with.us')->middleware('auth');;
+Route::post('/revisor/request', [RevisorController::class, 'becomeRevisor'])->name('become.revisor')->middleware('auth');
 Route::get('/revisor/{user}', [RevisorController::class, 'makeRevisor'])->name('make.revisor');
 
 

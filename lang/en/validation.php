@@ -2,13 +2,18 @@
 
 return [
     'required' => 'The :attribute field is required.',
-    'email' => 'The :attribute must be a valid email address.',
+    'email' => [
+        'valid' => 'The :attribute must be a valid email address.',
+        'exists' => 'The email is not registered.',
+
+    ],
     'min' => [
         'string' => 'The :attribute must be at least :min characters.',
     ],
     'confirmed' => 'The :attribute confirmation does not match.',
     'unique' => ':attribute is already in use.',
     'password' => [
+        'incorrect' => 'The email or password is incorrect.',
         'letters' => 'The password must contain at least one letter.',
         'numbers' => 'The password must contain at least one number.',
         'symbols' => 'The password must contain at least one symbol.',

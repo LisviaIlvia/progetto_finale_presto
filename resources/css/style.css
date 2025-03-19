@@ -47,6 +47,12 @@ body {
     background: scroll center url('/public/img/login.jpg');
     background-size: cover;
   }
+  .card-img-left-work-with-us {
+    width: 45%;
+    /* Link to your background image using in the property below! */
+    background: scroll center url('/public/img/workWithUs.jpg');
+    background-size: cover;
+  }
   
   .btn-login {
     font-size: 0.9rem;

@@ -30,6 +30,10 @@ class RevisorController extends Controller
         return redirect()->back()->with('message', __("ui.ad_rejected", ['title' => $ad->title]));
     }
 
+    public function workWithUs() {
+        return view('revisor.work-with-us');
+    }
+
     public function becomeRevisor() {
         $user = Auth::user();
         Mail::to('admin@presto.it')->send(new BecomeRevisor($user));

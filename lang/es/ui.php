@@ -22,7 +22,7 @@ return [
     'search_placeholder' => 'Buscar...',
     'buy_and_sell' => '¡Compra y vende al instante!',
     'become_reviewer' => '¿Quieres convertirte en revisor?',
-    'become_reviewer_desc' => 'Al hacer clic en el botón de abajo, enviarás una solicitud a nuestro administrador.',
+    'become_reviewer_desc' => 'Haz clic en el botón de abajo y completa el formulario!',
     'become_reviewer_btn' => 'Conviértete en revisor',
     'useful_links' => 'Enlaces útiles',
     'about_us' => 'Sobre nosotros',

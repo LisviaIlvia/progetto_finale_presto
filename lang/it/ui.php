@@ -21,7 +21,7 @@ return [
     'search_placeholder' => 'Cerca...',
     'buy_and_sell' => 'Compra e vendi in un attimo!',
     'become_reviewer' => 'Vuoi diventare revisore?',
-    'become_reviewer_desc' => 'Cliccando il bottone sottostante farai richiesta al nostro admin!',
+    'become_reviewer_desc' => 'Clicca il bottone sottostante e compila il form!',
     'become_reviewer_btn' => 'Diventa revisore',
     'useful_links' => 'Link Utili',
     'about_us' => 'Chi siamo',
