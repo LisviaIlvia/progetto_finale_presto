@@ -1,22 +1,27 @@
 <?php
 
 return [
-    'required' => 'Il campo :attribute è obbligatorio.',
+    'required' => 'Questo campo è obbligatorio.',
     'email' => [
         'valid' => 'Il campo :attribute deve essere un indirizzo email valido.',
-        'exists' => 'La mail non è registrata.'
+        'exists' => 'L\'email non è registrata.',
     ],
     'min' => [
         'string' => 'Il campo :attribute deve contenere almeno :min caratteri.',
     ],
-    'confirmed' => 'La conferma della :attribute non corrisponde.',
+    'confirmed' => 'La conferma di :attribute non corrisponde.',
     'unique' => ':attribute è già in uso.',
     'password' => [
-        'incorrect' => 'La mail o la password sono errate.',
+        'incorrect' => 'L\'email o la password sono errate.',
         'letters' => 'La password deve contenere almeno una lettera.',
         'numbers' => 'La password deve contenere almeno un numero.',
         'symbols' => 'La password deve contenere almeno un simbolo.',
     ],
+    'max' => [
+        'file' => 'Il file :attribute non deve superare i :max kilobyte.',
+    ],
+    'image' => 'Il file deve essere un\'immagine valida.',
+
     'custom' => [
         'title' => [
             'required' => 'Inserisci un titolo.',
@@ -29,13 +34,14 @@ return [
         'description' => [
             'required' => 'Inserisci una descrizione.',
         ],
-        'images' => [
-            'required' => 'Inserisci almeno un\'immagine.',
-            'image' => 'Ogni file deve essere un\'immagine.',
-            'max' => 'Ogni immagine deve essere di massimo 2MB.',
+        'temporary_images' => [
+            'max' => 'Puoi caricare massimo 6 immagini.',
+            'required' => 'Devi inserire almeno una foto.',
+            'image' => 'Il file deve essere un\'immagine valida.',
+            'max_size' => 'Ogni immagine deve essere inferiore a 2MB.',
         ],
         'tag' => [
-            'required' => 'Devi selezionare un tag.',
+            'required' => 'Scegli una categoria.',
         ],
         'success' => 'Annuncio caricato con successo!',
     ],

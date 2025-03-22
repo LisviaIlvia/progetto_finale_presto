@@ -1,60 +1,62 @@
 <x-layout>
     <x-display-message />
     <x-display-error />
-    <div class="container-fluid pt-5">
-        <div class="row">
-            <div class="col-12">
-                <div class="rounded shadow bg-body-secondary p-4 mb-5">
-                    <h1 class="display-5 text-center pb-3">{{__('ui.revisor_dashboard')}}</h1>
-                </div>
-            </div>
-        </div>
-
+    
+    <div class="container py-5">
         @if ($ad_to_check)
-            <div class="row justify-content-center pt-4">
-                <!-- Colonna sinistra con immagini -->
-                <div class="col-12 col-md-6 col-lg-7">
-                    <div class="row">
-                        @for ($i = 0; $i < 6; $i++)
-                            <div class="col-6 col-md-4 mb-4 text-center">
-                                <img src="https://picsum.photos/300" alt="immagine segnaposto" class="img-fluid rounded shadow">
-                            </div>
-                        @endfor
+            <div class="text-center mb-4">
+                <h1 class="display-5 fw-bold text-white">{{ __('ui.revisor_dashboard') }}</h1>
+            </div>
+            
+            <div class="row g-4 align-items-start">
+                <!-- Immagini annuncio -->
+                <div class="col-12 col-lg-7">
+                    <div class="row g-3">
+                        @if ($ad_to_check->images->count())
+                            @foreach ($ad_to_check->images as $key => $image)
+                                <div class="col-6 col-md-4">
+                                    <img src="{{ Storage::url($image->path) }}" class="rounded shadow img-fluid" alt="immagine {{ $key + 1 }} dell'articolo {{ $ad_to_check->title }}">
+                                </div>
+                            @endforeach
+                        @else
+                            @for ($i = 0; $i < 6; $i++)
+                                <div class="col-6 col-md-4">
+                                    <img src="https://picsum.photos/300" alt="immagine segnaposto" class="rounded shadow img-fluid">
+                                </div>
+                            @endfor
+                        @endif
                     </div>
                 </div>
-
-                <!-- Colonna destra con dettagli dell'annuncio -->
-                <div class="col-12 col-md-6 col-lg-4 ps-4 d-flex flex-column justify-content-between">
-                    <div>
-                        <h1>{{ $ad_to_check->title }}</h1>
-                        <h3>{{__('ui.author')}}: {{ $ad_to_check->user->name }}</h3>
-                        <h4>{{ $ad_to_check->price }}€</h4>
-                        <p class="h6">{{ $ad_to_check->description }}</p>
-                    </div>
-
-                    <div class="d-flex pb-4 justify-content-around">
-                        <!-- Bottone Rifiuta -->
-                        <form action="{{ route('reject', ['ad' => $ad_to_check]) }}" method="POST">
-                            @csrf
-                            @method('PATCH')
-                            <button class="btn btn-danger py-2 px-5 fw-bold w-100 w-md-auto">{{__('ui.reject')}}</button>
-                        </form>
-
-                        <!-- Bottone Accetta -->
-                        <form action="{{ route('accept', ['ad' => $ad_to_check]) }}" method="POST">
-                            @csrf
-                            @method('PATCH')
-                            <button class="btn btn-success py-2 px-5 fw-bold w-100 w-md-auto">{{__('ui.accept')}}</button>
-                        </form>
+                
+                <!-- Dettagli annuncio -->
+                <div class="col-12 col-lg-5">
+                    <div class="p-4 shadow rounded bg-light">
+                        <h2 class="text-dark">{{ $ad_to_check->title }}</h2>
+                        <p class="text-muted">{{ __('ui.author') }}: <strong>{{ $ad_to_check->user->name }}</strong></p>
+                        <h3 class="text-success fw-bold">{{ $ad_to_check->price }}€</h3>
+                        <p class="mt-3">{{ $ad_to_check->description }}</p>
+                        
+                        <!-- Pulsanti azione -->
+                        <div class="d-flex gap-3 mt-4">
+                            <form action="{{ route('reject', ['ad' => $ad_to_check]) }}" method="POST" class="w-50">
+                                @csrf
+                                @method('PATCH')
+                                <button class="btn btn-danger w-100 fw-bold">{{ __('ui.reject') }}</button>
+                            </form>
+                            
+                            <form action="{{ route('accept', ['ad' => $ad_to_check]) }}" method="POST" class="w-50">
+                                @csrf
+                                @method('PATCH')
+                                <button class="btn btn-success w-100 fw-bold">{{ __('ui.accept') }}</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         @else
-            <div class="row justify-content-center align-items-center height-custom text-center">
-                <div class="col-12">
-                    <h1 class="fst-italic display-4 text-white">{{__('ui.no_items_uploaded')}}</h1>
-                    <a href="{{ route('homepage') }}" class="mt-5 btn btn-success">{{__('ui.back_to_homepage')}}</a>
-                </div>
+            <div class="d-flex flex-column align-items-center justify-content-center vh-75">
+                <h1 class="display-4 text-white fw-bold">{{ __('ui.no_items_uploaded') }}</h1>
+                <a href="{{ route('homepage') }}" class="btn btn-primary mt-4 px-4 py-2">{{ __('ui.back_to_homepage') }}</a>
             </div>
         @endif
     </div>

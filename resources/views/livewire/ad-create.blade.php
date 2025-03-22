@@ -1,13 +1,13 @@
-<div class="container py-5 position-relative">
+<div class="container position-relative py-5">
   <x-display-message />
 
   <div class="row justify-content-center">
     <div class="col-lg-10 col-xl-9">
-      <div class="card shadow-lg border-0 rounded-4 overflow-hidden">
+      <div class="card border-0 rounded-4 shadow-lg overflow-hidden">
         <div class="card-body p-5">
-          <h3 class="text-center mb-4 text-primary display-6">{{__('ui.post_ad')}}</h3>
+          <h3 class="display-6 text-center text-primary mb-4">{{__('ui.post_ad')}}</h3>
 
-          <form wire:submit.prevent="store" >
+          <form wire:submit.prevent="store">
             <div class="mb-3">
               <label for="title" class="form-label">{{__('ui.title')}}</label>
               <input wire:model="title" type="text" class="form-control" id="title">
@@ -33,20 +33,43 @@
 
             <!-- Immagini Multiple -->
             <div class="mb-3">
-              <label for="images" class="form-label fw-bold"><i class="bi bi-upload"></i> {{__('ui.photo')}}</label>
-              <input wire:model.defer="images" type="file" class="form-control" id="images" accept="image/*" multiple>
-              
+              <label for="temporary_images" class="form-label fw-bold">
+                <i class="bi bi-upload"></i> {{ __('ui.photo') }}
+              </label>
+              <input wire:model.live="temporary_images" type="file"
+                class="form-control @error('temporary_images') is-invalid @enderror"
+                multiple accept="image/*">
 
-              <div wire:loading wire:target="images" class="mt-4">Uploading...</div>
-              @if ($images)
-              @foreach ($images as $image)
-              <div>
-              <img src="{{ $image->temporaryUrl() }}" alt="Preview Image" class="py-4" style="max-width: 20%; height: 50%;">
+              <div class="text-danger">
+                @error('temporary_images') {{ $message }} @enderror
+                @error('temporary_images.*') {{ $message }} @enderror
               </div>
-              @endforeach
+
+
+
+              <div wire:loading wire:target="temporary_images" class="mt-4">Uploading...</div>
+
+              @if (!empty($images))
+              <div class="row mt-3">
+                <p>Anteprima delle immagini:</p>
+                @foreach ($images as $key => $image)
+                <div class="col-4 mb-2">
+                  <div class="position-relative">
+                    <img src="{{ $image->temporaryUrl() }}" alt="Anteprima" class="rounded shadow img-fluid">
+
+                    <!-- Pulsante Elimina immagine -->
+                    <button type="button" wire:click="removeImage({{ $key }})"
+                      class="btn btn-danger btn-sm m-1 position-absolute end-0 top-0">
+                      <i class="bi bi-x-circle"></i>X
+                    </button>
+                  </div>
+                </div>
+                @endforeach
+              </div>
               @endif
-              <div class="text-danger">@error('images') {{ $message }} @enderror</div>
             </div>
+
+
 
             <hr class="my-4">
 
@@ -58,17 +81,17 @@
               <div class="form-check">
                 <input class="form-check-input" type="radio" wire:model="tag_id" id="tag{{ $tag->id }}" value="{{ $tag->id }}">
                 <label class="form-check-label" for="tag{{ $tag->id }}">
-                {{__("ui.$tag->name")}}
+                  {{__("ui.$tag->name")}}
                 </label>
               </div>
-              @endforeach             
+              @endforeach
             </div>
 
             <hr class="my-4">
 
             <div class="d-grid">
-              <button class="btn btn-primary btn-lg fw-bold text-uppercase" type="submit">
-                <i class="fas fa-upload"></i> {{__('ui.publish')}}
+              <button class="btn btn-lg btn-primary text-uppercase fw-bold" type="submit">
+                <i class="fa-upload fas"></i> {{__('ui.publish')}}
               </button>
             </div>
           </form>

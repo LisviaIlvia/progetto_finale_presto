@@ -9,7 +9,7 @@ class Image extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['ad_id', 'path'];
+    protected $fillable = ['path'];
 
     // La relazione con il modello Ad (ogni immagine appartiene a un annuncio)
     public function ad()

@@ -1,53 +1,56 @@
-<div>
-  <div class="container my-5">
-    <div class="row justify-content-center">
-      <div class="col-12 col-lg-10">
-        <div class="card shadow-lg border-0 p-4 article-detail">
-          <div class="row g-4 align-items-center">
-            <div class="col-12 col-md-6 mb-3">
-              <!-- Carosello Bootstrap -->
-              <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-indicators">
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                </div>
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <img src="https://picsum.photos/400" class="d-block w-100" alt="Immagine 1">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="https://picsum.photos/400" class="d-block w-100" alt="Immagine 2">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="https://picsum.photos/400" class="d-block w-100" alt="Immagine 3">
-                  </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-                </button>
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-10">
+      <div class="card shadow-lg border-0 p-4 article-detail rounded-4">
+        <div class="row g-4 align-items-center">
+          <!-- Carosello Immagini -->
+          <div class="col-12 col-md-6 mb-3">
+            @if ($ad->images->count() > 0)
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-indicators">
+                @foreach ($ad->images as $key => $image)
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{ $key }}" class="@if($loop->first) active @endif" aria-label="Slide {{ $key + 1 }}"></button>
+                @endforeach
               </div>
-            </div>
-            <!-- Testo -->
-            <div class="col-12 col-md-6">
-              <h2 class="display-5 fw-bold text-danger">{{ $ad->title }}</h2>
-              <p><span class="fw-bold">{{ __('ui.author') }}:</span> {{ $ad->user->name }}</p>
-              <h4 class="text-muted fw-semibold mt-2">€{{ number_format($ad->price, 2, ',', '.') }}</h4>
-              <p class="mt-3 article-text text-secondary fs-5">{{ $ad->description }}</p>
+              
+              <div class="carousel-inner rounded-4 shadow-sm overflow-hidden">
+                @foreach ($ad->images as $key => $image)
+                <div class="carousel-item @if($loop->first) active @endif">
+                  <img src="{{ Storage::url($image->path) }}" class="d-block w-100" alt="Immagine {{ $key + 1 }} dell'articolo {{ $ad->title }}" style="object-fit: cover; height: 500px; border-radius: 10px;">
+                </div>
+                @endforeach
+              </div>
 
-              <div class="mt-4 d-flex gap-3">
-                <a href="{{ route('index.ad') }}" class="btn btn-outline-danger btn-lg px-4">
-                  <i class="fas fa-arrow-left"></i> {{__('ui.back_to_ads')}}
-                </a>
-                <a href="#" class="btn btn-danger btn-lg px-4">
-                  <i class="fas fa-shopping-cart"></i> {{__('ui.contact_seller')}}
-                </a>
-              </div>
+              @if ($ad->images->count() > 1)
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon bg-dark rounded-circle p-2" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <span class="carousel-control-next-icon bg-dark rounded-circle p-2" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+              @endif
+            </div>
+            @else
+            <img src="https://picsum.photos/300" class="img-fluid rounded-4 shadow-sm" alt="Nessuna foto inserita dall'utente">
+            @endif
+          </div>
+
+          <!-- Testo e dettagli annuncio -->
+          <div class="col-12 col-md-6">
+            <h2 class="display-6 fw-bold text-danger">{{ $ad->title }}</h2>
+            <p class="text-muted"><i class="fas fa-user"></i> <strong>{{ __('ui.author') }}:</strong> {{ $ad->user->name }}</p>
+            <h4 class="fw-semibold text-dark mt-2">€{{ number_format($ad->price, 2, ',', '.') }}</h4>
+            <p class="mt-3 article-text text-secondary fs-5">{{ $ad->description }}</p>
+
+            <div class="mt-4 d-flex gap-3">
+              <a href="{{ route('index.ad') }}" class="btn btn-outline-danger btn-lg px-4 shadow-sm rounded-3">
+                <i class="fas fa-arrow-left"></i> {{__('ui.back_to_ads')}}
+              </a>
+              <a href="#" class="btn btn-danger btn-lg px-4 shadow-sm rounded-3">
+                <i class="fas fa-shopping-cart"></i> {{__('ui.contact_seller')}}
+              </a>
             </div>
           </div>
         </div>
