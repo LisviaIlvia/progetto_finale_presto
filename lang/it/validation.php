@@ -38,7 +38,7 @@ return [
             'max' => 'Puoi caricare massimo 6 immagini.',
             'required' => 'Devi inserire almeno una foto.',
             'image' => 'Il file deve essere un\'immagine valida.',
-            'max_size' => 'Ogni immagine deve essere inferiore a 2MB.',
+            'max_size' => 'Ogni immagine deve essere inferiore a 1MB.',
         ],
         'tag' => [
             'required' => 'Scegli una categoria.',

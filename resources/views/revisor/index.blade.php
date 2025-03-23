@@ -15,13 +15,13 @@
                         @if ($ad_to_check->images->count())
                             @foreach ($ad_to_check->images as $key => $image)
                                 <div class="col-6 col-md-4">
-                                    <img src="{{ Storage::url($image->path) }}" class="rounded shadow img-fluid" alt="immagine {{ $key + 1 }} dell'articolo {{ $ad_to_check->title }}">
+                                    <img src="{{ $image->getUrl(300, 300) }}" class="rounded shadow img-fluid" alt="immagine {{ $key + 1 }} dell'articolo {{ $ad_to_check->title }}">
                                 </div>
                             @endforeach
                         @else
                             @for ($i = 0; $i < 6; $i++)
                                 <div class="col-6 col-md-4">
-                                    <img src="https://picsum.photos/300" alt="immagine segnaposto" class="rounded shadow img-fluid">
+                                    <img src={{ asset('/img/segnaposto.jpg') }} alt="immagine segnaposto" class="rounded shadow img-fluid">
                                 </div>
                             @endfor
                         @endif

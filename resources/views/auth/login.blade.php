@@ -32,6 +32,10 @@
                   @enderror
                 </div>
 
+                <a class="d-block text-center mt-2 small" href="{{ route('register') }}">{{__('ui.not_already_have_account')}}</a>
+
+                <hr class="my-4">
+
                 <div class="d-grid mb-2">
                   <button class="btn btn-lg btn-primary btn-login fw-bold text-uppercase" type="submit">{{__('ui.login')}}</button>
                 </div>

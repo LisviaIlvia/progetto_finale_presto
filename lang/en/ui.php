@@ -12,6 +12,7 @@ return [
     'categories' => 'Categories',
     'register' => 'Register',
     'already_have_account' => 'Already have an account? Log in',
+    'not_already_have_account' => 'Don\'t have an account yet? Sign up now!',
     'email' => 'Email',
     'name' => 'Name',
     'password' => 'Password',
@@ -59,4 +60,5 @@ return [
     'contact_seller' => 'Contact the seller',
     'ad_accepted' => "You have accepted the item :title",
     'ad_rejected' => "You have rejected the item :title",
+    'photo_info' => 'You can upload a maximum of 6 images. Each image must be smaller than 1MB.',
 ];

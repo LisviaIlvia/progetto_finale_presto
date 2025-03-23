@@ -15,6 +15,7 @@ return [
     'password' => 'Password',
     'password_confirmation' => 'Conderma Password',
     'already_have_account' => 'Hai già un account? Accedi',
+    'not_already_have_account' => 'Non sei ancora registrato? Registrati',
     'login' => 'Login',
     'review_area' => 'Zona revisione',
     'logout' => 'Logout',
@@ -58,4 +59,5 @@ return [
     'contact_seller' => 'Contatta il venditore',
     'ad_accepted' => "Hai accettato l'articolo :title",
     'ad_rejected' => "Hai rifiutato l'articolo :title",
+    'photo_info' => 'Puoi caricare massimo 6 immagini. Ogni immagine deve essere inferiore a 1MB.',
 ];

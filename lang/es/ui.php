@@ -16,6 +16,7 @@ return [
     'password' => 'Contraseña',
     'password_confirmation' => 'Confirmar contraseña',
     'already_have_account' => '¿Ya tienes una cuenta? Inicia sesión',
+    'not_already_have_account' => '¿Aún no tienes una cuenta? ¡Regístrate ahora!',
     'login' => 'Iniciar sesión',
     'review_area' => 'Área de revisión',
     'logout' => 'Cerrar sesión',
@@ -59,4 +60,5 @@ return [
     'contact_seller' => 'Contactar con el vendedor',
     'ad_accepted' => "Has aceptado el artículo :title",
     'ad_rejected' => "Has rechazado el artículo :title",
+    'photo_info' => 'Puedes subir un máximo de 6 imágenes. Cada imagen debe ser inferior a 1MB.',
 ];

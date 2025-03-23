@@ -38,7 +38,7 @@ return [
             'max' => 'Puedes cargar un máximo de 6 imágenes.',
             'required' => 'Debes cargar al menos una foto.',
             'image' => 'El archivo debe ser una imagen válida.',
-            'max_size' => 'Cada imagen debe ser inferior a 2MB.',
+            'max_size' => 'Cada imagen debe ser inferior a 1MB.',
         ],
         'tag' => [
             'required' => 'Por favor elige una categoría.',

@@ -2,10 +2,12 @@
 
 namespace App\Livewire;
 
+use App\Jobs\ResizeImage;
 use Livewire\Component;
 use App\Models\Ad;
 use App\Models\Tag;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 use Livewire\Attributes\Validate;
 use Livewire\WithFileUploads;
 
@@ -30,17 +32,16 @@ class AdCreate extends Component
     public $tag_id = null;
 
     public $images = [];
-    public $temporary_images = []; // Inizializzo come array vuoto
+    #[Validate('required', message: 'validation.custom.temporary_images.required')]
+    #[Validate('max:6', message: 'validation.custom.temporary_images.max')]
+        public $temporary_images = []; // Inizializzo come array vuoto
 
     public function updatedTemporaryImages()
     {
         // Validazione normale
         if ($this->validate([
-            'temporary_images.*' => 'image|max:2048', // 2MB
-            'temporary_images' => 'max:6',
-        ], [
-            'temporary_images.*.image' => __('validation.custom.temporary_images.image'),
-            'temporary_images.*.max' => __('validation.custom.temporary_images.max_size'),
+            'temporary_images.*' => 'image|max:1024', // 2MB
+            'temporary_images' => 'array|max:6',
         ])) {
             // Aggiungi solo immagini valide
             foreach ($this->temporary_images as $image) {
@@ -62,8 +63,13 @@ class AdCreate extends Component
             'tag_id' => $this->tag_id,
         ]);
 
-        foreach ($this->images as $image) {
-            $ad->images()->create(['path' => $image->store('images', 'public')]);
+        if (count($this->images) > 0) {
+            foreach ($this->images as $image) {
+                $newFileName = "ad/{$ad->id}";
+                $newImage = $ad->images()->create(['path' => $image->store($newFileName, 'public')]);
+                dispatch(new ResizeImage($newImage->path, 300, 300));
+            }
+            File::deleteDirectory(storage_path('/app/livewire-tmp'));
         }
 
         $this->reset();

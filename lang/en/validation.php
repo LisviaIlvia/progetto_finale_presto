@@ -38,7 +38,7 @@ return [
             'max' => 'You can upload a maximum of 6 images.',
             'required' => 'You must upload at least one photo.',
             'image' => 'The file must be a valid image.',
-            'max_size' => 'Each image must be less than 2MB.',
+            'max_size' => 'Each image must be less than 1MB.',
         ],
         'tag' => [
             'required' => 'Please choose a category.',

@@ -9,13 +9,13 @@
 
           <form wire:submit.prevent="store">
             <div class="mb-3">
-              <label for="title" class="form-label">{{__('ui.title')}}</label>
+              <label for="title" class="form-label fw-bold">{{__('ui.title')}}</label>
               <input wire:model="title" type="text" class="form-control" id="title">
               <div class="text-danger">@error('title') {{ $message }} @enderror</div>
             </div>
 
             <div class="mb-3">
-              <label for="price" class="form-label">{{__('ui.price')}}</label>
+              <label for="price" class="form-label fw-bold">{{__('ui.price')}}</label>
               <div class="input-group">
                 <input wire:model="price" type="text" class="form-control" id="price" placeholder="0.00">
                 <span class="input-group-text">€</span>
@@ -24,7 +24,7 @@
             </div>
 
             <div class="mb-3">
-              <label for="description" class="form-label">{{__('ui.description')}}</label>
+              <label for="description" class="form-label fw-bold">{{__('ui.description')}}</label>
               <textarea wire:model="description" class="form-control" id="description" rows="4"></textarea>
               <div class="text-danger">@error('description') {{ $message }} @enderror</div>
             </div>
@@ -34,24 +34,26 @@
             <!-- Immagini Multiple -->
             <div class="mb-3">
               <label for="temporary_images" class="form-label fw-bold">
-                <i class="bi bi-upload"></i> {{ __('ui.photo') }}
+                {{ __('ui.photo') }}
+
+                <!-- Icona con tooltip -->
+                <i class="fa-solid fa-circle-info ms-2 text-primary" data-bs-toggle="tooltip"
+                  data-bs-placement="right" title="@lang('ui.photo_info')">
+                </i>
               </label>
+
               <input wire:model.live="temporary_images" type="file"
                 class="form-control @error('temporary_images') is-invalid @enderror"
                 multiple accept="image/*">
 
-              <div class="text-danger">
-                @error('temporary_images') {{ $message }} @enderror
-                @error('temporary_images.*') {{ $message }} @enderror
-              </div>
-
-
+              <div class="text-danger">@error('temporary_images') {{ $message }} @enderror</div>
+              <div class="text-danger">@error('temporary_images.*') {{ $message }} @enderror</div>
 
               <div wire:loading wire:target="temporary_images" class="mt-4">Uploading...</div>
 
               @if (!empty($images))
               <div class="row mt-3">
-                <p>Anteprima delle immagini:</p>
+                <p class="fw-bold">Anteprima delle immagini:</p>
                 @foreach ($images as $key => $image)
                 <div class="col-4 mb-2">
                   <div class="position-relative">
@@ -60,7 +62,7 @@
                     <!-- Pulsante Elimina immagine -->
                     <button type="button" wire:click="removeImage({{ $key }})"
                       class="btn btn-danger btn-sm m-1 position-absolute end-0 top-0">
-                      <i class="bi bi-x-circle"></i>X
+                      <i class="fa-solid fa-xmark"></i> 
                     </button>
                   </div>
                 </div>
@@ -74,7 +76,7 @@
             <hr class="my-4">
 
             <!-- Categoria -->
-            <h5 class="mb-3">{{__('ui.category')}}</h5>
+            <p class="mb-3 fw-bold">{{__('ui.category')}}</p>
             <div class="text-danger">@error('tag_id') {{ $message }} @enderror</div>
             <div class="d-flex flex-wrap gap-2">
               @foreach($tags as $tag)

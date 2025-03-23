@@ -1,10 +1,10 @@
 <div class="card shadow-sm border-0 my-3 mx-auto rounded-4 overflow-hidden" style="min-height: 500px; width: 320px;">
     <!-- Immagine con effetto hover -->
     <div class="position-relative">
-        <img src="{{ $ad->images->isNotEmpty() ? Storage::url($ad->images->first()->path) : 'https://picsum.photos/300'}}" 
+        <img src="{{ $ad->images->isNotEmpty() ? $ad->images->first()->getUrl(300, 300) : asset('/img/segnaposto.jpg') }}" 
              class="card-img-top" 
              alt="Immagine annuncio {{ $ad->title }}" 
-             style="height: 250px; object-fit: cover; transition: transform 0.3s ease;">
+             style=" object-fit: cover; transition: transform 0.3s ease;">
         @if($ad->tag)
             <span class="position-absolute top-0 start-0 m-2 px-3 py-1 rounded-pill text-white bg-danger shadow-sm small">
                 {{ __('ui.' . $ad->tag->name) }}

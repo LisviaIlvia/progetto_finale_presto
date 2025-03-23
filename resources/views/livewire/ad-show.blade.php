@@ -16,7 +16,7 @@
               <div class="carousel-inner rounded-4 shadow-sm overflow-hidden">
                 @foreach ($ad->images as $key => $image)
                 <div class="carousel-item @if($loop->first) active @endif">
-                  <img src="{{ Storage::url($image->path) }}" class="d-block w-100" alt="Immagine {{ $key + 1 }} dell'articolo {{ $ad->title }}" style="object-fit: cover; height: 500px; border-radius: 10px;">
+                  <img src="{{ $image->getUrl(300, 300) }}" class="d-block w-100" alt="Immagine {{ $key + 1 }} dell'articolo {{ $ad->title }}" style="object-fit: cover; border-radius: 10px;">
                 </div>
                 @endforeach
               </div>
@@ -33,7 +33,7 @@
               @endif
             </div>
             @else
-            <img src="https://picsum.photos/300" class="img-fluid rounded-4 shadow-sm" alt="Nessuna foto inserita dall'utente">
+            <img src={{ asset('/img/segnaposto.jpg') }} class="img-fluid rounded-4 shadow-sm" alt="Nessuna foto inserita dall'utente">
             @endif
           </div>
 
