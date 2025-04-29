@@ -1,39 +1,57 @@
-<footer class="bg-danger text-white py-4 mt-5">
-    <div class="container text-center">
-        <div class="row">
-            <!-- Logo e Nome Marketplace -->
-            <div class="col-md-4">
-                <h4 class="fw-bold"><i class="fas fa-bolt"></i> Presto</h4>
-                <p>{{__('ui.buy_and_sell')}}</p>
+<footer class="bg-dark text-white pt-5 pb-4">
+    <div class="container text-md-left">
+        <div class="row text-md-left">
+
+            <!-- Logo e Descrizione -->
+            <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Presto.it</h5>
+                <p>{{ __('ui.buy_and_sell') }}</p>
             </div>
-            <div class="col-md-4">
-                <h5 class="fw-bold">{{__('ui.become_reviewer')}}</h5>
-                <p>{{__('ui.become_reviewer_desc')}}</p>
-                <a href="{{ route('work.with.us') }}" class="btn btn-success mb-3"> {{__('ui.become_reviewer_btn')}}</a>
+
+            <!-- Diventa Revisore -->
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                <h5 class="text-uppercase mb-4 font-weight-bold text-warning">{{ __('ui.become_reviewer') }}</h5>
+                <p>{{ __('ui.become_reviewer_desc') }}</p>
+                <a href="{{ route('work.with.us') }}" class="btn btn-success btn-sm">{{ __('ui.become_reviewer_btn') }}</a>
             </div>
 
             <!-- Link Utili -->
-            <div class="col-md-4">
-                <h5 class="fw-bold">{{__('ui.useful_links')}}</h5>
-                <ul class="list-unstyled">
-                    <li><a href="#" class="text-white text-decoration-none">{{__('ui.about_us')}}</a></li>
-                    <li><a href="#" class="text-white text-decoration-none">{{__('ui.contacts')}}</a></li>
-                    <li><a href="{{ route('work.with.us') }}" class="text-white text-decoration-none fw-bold">{{__('ui.work_with_us')}}</a></li>
-                </ul>
+            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+                <h5 class="text-uppercase mb-4 font-weight-bold text-warning">{{ __('ui.useful_links') }}</h5>
+                <p><a href="#" class="text-white text-decoration-none">{{ __('ui.about_us') }}</a></p>
+                <p><a href="#" class="text-white text-decoration-none">{{ __('ui.contacts') }}</a></p>
+                <p><a href="{{ route('work.with.us') }}" class="text-white text-decoration-none fw-bold">{{ __('ui.work_with_us') }}</a></p>
             </div>
 
-            <!-- Social Media -->
-            <div class="col-md-4">
-                <h5 class="fw-bold">{{__('ui.follow_us')}}</h5>
-                <a href="#" class="text-white me-3"><i class="fab fa-facebook fa-2x"></i></a>
-                <a href="#" class="text-white me-3"><i class="fab fa-instagram fa-2x"></i></a>
-                <a href="#" class="text-white"><i class="fab fa-twitter fa-2x"></i></a>
+            <!-- Social -->
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                <h5 class="text-uppercase mb-4 font-weight-bold text-warning">{{ __('ui.follow_us') }}</h5>
+                <div>
+                    <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                </div>
             </div>
+
         </div>
+
+        <hr class="mb-4">
 
         <!-- Copyright -->
-        <div class="mt-4">
-            <p class="mb-0">© {{ date('Y') }}{{__('ui.rights_reserved')}}</p>
+        <div class="row align-items-center justify-content-center">
+            <div class="col-md-7 col-lg-8">
+                <p class="text-white text-center mb-0">© {{ date('Y') }} {{ __('ui.rights_reserved') }}</p>
+            </div>
+<!-- 
+            <div class="col-md-5 col-lg-4">
+                <div class="text-center text-md-right">
+                    <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-white me-3"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div> -->
         </div>
+
     </div>
 </footer>

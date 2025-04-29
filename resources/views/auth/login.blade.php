@@ -1,51 +1,47 @@
-<x-layout>
+<x-layout>   
+    <div class="container d-flex justify-content-center align-items-center min-vh-100">
+        <div class="col-md-6">
+            <div class="card border-0 shadow-lg">
+                <div class="card-body bg-light p-5">
 
-  <body>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-10 col-xl-9 mx-auto">
-          <div class="card flex-row my-5 border-0 shadow rounded-3 overflow-hidden">
-            <div class="card-img-left-login d-none d-md-flex">
-              <!-- Background image for card set in CSS! -->
+                    <h2 class="text-center text-warning mb-4">{{ __('ui.login') }}</h2>
+
+                    <form method="POST" action="{{ route('login') }}">
+                        @csrf
+
+                        <!-- Email -->
+                        <div class="form-floating mb-3">
+                            <input type="email" id="email" name="email" value="{{ old('email') }}" class="form-control @error('email') is-invalid @enderror" required>
+                            <label for="email">{{ __('ui.email') }}</label>
+                            @error('email') <small class="text-danger">{{ $message }}</small> @enderror
+                        </div>
+
+                        <!-- Password -->
+                        <div class="form-floating mb-4">
+                            <input type="password" id="password" name="password" class="form-control @error('password') is-invalid @enderror" required>
+                            <label for="password">{{ __('ui.password') }}</label>
+                            @error('password') <small class="text-danger">{{ $message }}</small> @enderror
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="d-grid mb-3">
+                            <button type="submit" class="btn btn-dark w-100 text-warning fw-bold">
+                                {{ __('ui.login') }}
+                            </button>
+                        </div>
+
+                        <!-- Link to Register -->
+                        <div class="text-center">
+                            <small class="text-muted">
+                                {{ __('ui.not_already_have_account') }}
+                                <a href="{{ route('register') }}" class="fw-semibold">{{ __('ui.register') }}</a>
+                            </small>
+                        </div>
+
+                    </form>
+
+                </div>
             </div>
-            <div class="card-body p-4 p-sm-5">
-              <h5 class="card-title text-center mb-5 fw-light fs-5">{{__('ui.login')}}</h5>
-
-              <form action="{{ route('login') }}" method="POST">
-                @csrf
-
-                <div class="form-floating mb-3">
-                  <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}" id="email">
-                  <label for="email">Email</label>
-                  @error('email')
-                  <div class="invalid-feedback">{{ $message }}</div>
-                  @enderror
-                </div>
-
-                <hr>
-
-                <div class="form-floating mb-3">
-                  <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" id="password">
-                  <label for="password">Password</label>
-                  @error('password')
-                  <div class="invalid-feedback">{{ $message }}</div>
-                  @enderror
-                </div>
-
-                <a class="d-block text-center mt-2 small" href="{{ route('register') }}">{{__('ui.not_already_have_account')}}</a>
-
-                <hr class="my-4">
-
-                <div class="d-grid mb-2">
-                  <button class="btn btn-lg btn-primary btn-login fw-bold text-uppercase" type="submit">{{__('ui.login')}}</button>
-                </div>
-
-                <hr class="my-4">
-              </form>
-            </div>
-          </div>
         </div>
-      </div>
     </div>
-  </body>
 </x-layout>

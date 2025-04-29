@@ -1,25 +1,30 @@
 <x-layout>
     <x-display-message/>
     <!-- Hero Section -->
-    <header class="bg-danger text-white text-center py-5">
-        <div class="container">
-            <h1 class="fw-bold ">{{ __('ui.welcome') }}</h1>
-            <p class="lead">{{ __('ui.find_or_post') }}</p>
-            @guest
-            <a href="{{ route('register') }}" class="btn btn-light btn-lg">
-                <i class="fas fa-user-plus"></i> {{ __('ui.register_now') }}
-            </a>
-            @else
-            <a href="{{ route('create.ad') }}" class="btn btn-light btn-lg">
-                <i class="fas fa-upload"></i> {{__('ui.post_ad')}}
-            </a>
-            @endguest
+    <header class="text-center py-5 ">
+        <div class="container-fluid text-center">
+            <div class="row vh-100 justify-content-center align-items-center">
+                <div class="col-12">
+                    <h1 class="display-4">{{ __('ui.welcome') }}</h1>
+                    <p class="lead">{{ __('ui.find_or_post') }}</p>
+                    @guest
+                    <a href="{{ route('register') }}" class="btn btn-dark btn-lg">
+                    {{ __('ui.register_now') }}
+                    </a>
+                    @else
+                    <a href="{{ route('create.ad') }}" class="btn btn-warning btn-lg">
+                     {{__('ui.post_ad')}}
+                    </a>
+                    @endguest
+
+                </div>
+            </div>
         </div>
     </header>
 
     <!-- Annunci Recenti -->
     <section class="my-5">
-        <h2 class="text-center text-white display-6 mb-5">{{__('ui.latest_ads')}}</h2>
+        <h2 class="text-center display-6 mb-5">{{__('ui.latest_ads')}}</h2>
         <div class="container">
             <div class="row">
                 {{-- Itera solo sugli ultimi 6 annunci --}}

@@ -14,7 +14,7 @@
 
     <x-navbar />
     
-<div class="height-custom-layout">
+<div class="min-vh-100">
 {{ $slot }}
 </div>
         

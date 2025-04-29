@@ -29,6 +29,12 @@ class Image extends Model
         return self::getUrlByFilePath($this->path, $w, $h);
     }
 
+    protected function casts(): array
+    {
+        return [
+            'labels' => 'array',
+        ];
+    }
     // La relazione con il modello Ad (ogni immagine appartiene a un annuncio)
     public function ad()
     {

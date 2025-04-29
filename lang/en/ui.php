@@ -1,7 +1,9 @@
 <?php
 
 return [
-    'welcome' => 'Welcome to Presto!',
+    'labels' => 'Labels',
+    'ratings' => 'Ratings',
+    'welcome' => 'Presto.it',
     'find_or_post' => 'Find or post ads in seconds',
     'register_now' => 'Register now',
     'post_ad' => 'Post an ad',

@@ -1,7 +1,7 @@
-body {
+/* body {
     background: #007bff;
     background: linear-gradient(to right, #0062E6, #33AEFF);
-  }
+  } */
 
 .nav {
     flex-wrap: wrap;
@@ -25,27 +25,7 @@ body {
     font-weight: bold;
     padding: 0.3rem 0.6rem;
 }
-  
-  .card-img-left {
-    width: 45%;
-    /* Link to your background image using in the property below! */
-    background: scroll center url('/public/img/register.jpg');
-    background-size: cover;
-  }
 
-  .card-img-left-public {
-    width: 45%;
-    /* Link to your background image using in the property below! */
-    background: scroll center url('/public/img/pubblica.jpg');
-    background-size: cover;
-  }
-
-  .card-img-left-login {
-    width: 45%;
-    /* Link to your background image using in the property below! */
-    background: scroll center url('/public/img/login.jpg');
-    background-size: cover;
-  }
   .card-img-left-work-with-us {
     width: 45%;
     /* Link to your background image using in the property below! */

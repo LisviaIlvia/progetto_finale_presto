@@ -1,7 +1,9 @@
 <?php
 
 return [
-    'welcome' => '¡Bienvenido a Presto!',
+    'labels' => 'Etiquetas',
+    'ratings' => 'Valoraciones',
+    'welcome' => 'Presto.it',
     'find_or_post' => 'Encuentra o publica anuncios en segundos',
     'register_now' => 'Regístrate ahora',
     'post_ad' => 'Publicar un anuncio',
