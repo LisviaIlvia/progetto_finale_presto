@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Jobs\GoogleVisionLabelImage;
 use App\Jobs\GoogleVisionSafeSearch;
+use App\Jobs\RemoveFaces;
 use App\Jobs\ResizeImage;
 use Livewire\Component;
 use App\Models\Ad;
@@ -69,9 +70,11 @@ class AdCreate extends Component
             foreach ($this->images as $image) {
                 $newFileName = "ad/{$ad->id}";
                 $newImage = $ad->images()->create(['path' => $image->store($newFileName, 'public')]);
-                dispatch(new ResizeImage($newImage->path, 300, 300));
-                dispatch(new GoogleVisionSafeSearch($newImage->id));
-                dispatch(new GoogleVisionLabelImage($newImage->id));
+                RemoveFaces::withChain([
+                    new ResizeImage($newImage->path, 300, 300),
+                    new GoogleVisionSafeSearch($newImage->id),
+                    new GoogleVisionLabelImage($newImage->id)
+                ])->dispatch($newImage->id);
             }
             File::deleteDirectory(storage_path('/app/livewire-tmp'));
         }

@@ -2,7 +2,7 @@
     <section class="container my-5">
         <!-- Titolo -->
         <div class="text-center mb-5">
-            <h2 class="display-4 fw-bold text-warning">{{ __('ui.ads') }}</h2>
+            <h2 class="display-4">{{ __('ui.ads') }}</h2>
         </div>
 
         <!-- Griglia Annunci -->

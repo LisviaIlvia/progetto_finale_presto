@@ -8,7 +8,7 @@
                     <h1 class="display-4">{{ __('ui.welcome') }}</h1>
                     <p class="lead">{{ __('ui.find_or_post') }}</p>
                     @guest
-                    <a href="{{ route('register') }}" class="btn btn-dark btn-lg">
+                    <a href="{{ route('register') }}" class="btn btn-warning btn-lg">
                     {{ __('ui.register_now') }}
                     </a>
                     @else

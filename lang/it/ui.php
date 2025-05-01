@@ -1,5 +1,9 @@
 <?php
 return [
+    'search' => 'Risultati per la ricerca',
+    'no_search' => 'Nessun annuncio corrisponde alla tua ricerca',
+    'no_labels' => 'Nessuna etichetta',
+    'preview_images' => 'Anteprima immagine',
     'labels' => 'Etichette',
     'ratings' => 'Valutazioni',
     'welcome' => 'Presto.it',

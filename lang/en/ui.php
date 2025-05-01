@@ -1,6 +1,10 @@
 <?php
 
 return [
+    'search' => 'Search results',
+    'no_search' => 'No ads match your search',
+    'no_labels' => 'No labels',
+    'preview_images' => 'Image preview',
     'labels' => 'Labels',
     'ratings' => 'Ratings',
     'welcome' => 'Presto.it',

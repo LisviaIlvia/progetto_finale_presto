@@ -1,6 +1,6 @@
 <div class="card shadow-lg border-0 my-4 mx-auto overflow-hidden" style="min-height: 400px; width: 320px;">
     <div class="position-relative">
-        <img src="{{ $ad->images->isNotEmpty() ? $ad->images->first()->getUrl(300, 300) : asset('/img/segnaposto.jpg') }}" 
+        <img src="{{ $ad->images->isNotEmpty() ? $ad->images->first()->getUrl() : asset('/img/segnaposto.jpg') }}" 
              class="card-img-top" 
              alt="Immagine annuncio {{ $ad->title }}" 
              style="height: 300px; object-fit: cover;">

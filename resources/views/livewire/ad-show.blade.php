@@ -16,7 +16,7 @@
               <div class="carousel-inner rounded-4 shadow-sm overflow-hidden">
                 @foreach ($ad->images as $key => $image)
                 <div class="carousel-item @if($loop->first) active @endif">
-                  <img src="{{ $image->getUrl(300, 300) }}" class="d-block w-100" alt="Immagine {{ $key + 1 }} dell'articolo {{ $ad->title }}" style="object-fit: cover; border-radius: 10px;">
+                  <img src="{{ $image->getUrl() }}" class="d-block w-100" alt="Immagine {{ $key + 1 }} dell'articolo {{ $ad->title }}" style="object-fit: cover; border-radius: 10px;">
                 </div>
                 @endforeach
               </div>

@@ -1,6 +1,10 @@
 <?php
 
 return [
+    'search' => 'Resultados de la búsqueda',
+    'no_search' => 'No hay anuncios que coincidan con tu búsqueda',
+    'no_labels' => 'Sin etiquetas',
+    'preview_images' => 'Vista previa de la imagen',
     'labels' => 'Etiquetas',
     'ratings' => 'Valoraciones',
     'welcome' => 'Presto.it',

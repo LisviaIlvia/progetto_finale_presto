@@ -3,7 +3,7 @@
         
         <!-- Titolo -->
         <div class="text-center mb-5">
-            <h2 class="display-4 fw-bold">
+            <h2 class="display-4 ">
                 {{__('ui.category_ads')}} 
                 <span class="text-warning">{{ $tag->name }}</span>
             </h2>
