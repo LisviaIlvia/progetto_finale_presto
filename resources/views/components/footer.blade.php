@@ -4,7 +4,7 @@
 
             <!-- Logo e Descrizione -->
             <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-                <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Presto.it</h5>
+                <h5 class=" mb-4 font-weight-bold text-warning">Presto.it</h5>
                 <p>{{ __('ui.buy_and_sell') }}</p>
             </div>
 

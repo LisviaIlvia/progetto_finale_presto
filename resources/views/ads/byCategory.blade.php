@@ -12,7 +12,7 @@
         <!-- Griglia Annunci -->
         <div class="row gy-5 justify-content-center">
             @forelse($ads as $ad)
-                <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex">
+                <div class="col-12 col-sm-6 col-md-4 d-flex">
                     <x-ad-card :ad="$ad" />
                 </div>
             @empty

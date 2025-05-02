@@ -26,15 +26,15 @@
     <section class="my-5">
         <h2 class="text-center display-6 mb-5">{{__('ui.latest_ads')}}</h2>
         <div class="container">
-            <div class="row">
+            <div class="row gy-5 justify-content-center">
                 {{-- Itera solo sugli ultimi 6 annunci --}}
                 @forelse($ads as $ad)
-                <div class="col-12 col-sm-6 col-lg-4 mb-4">
+                <div class="col-12 col-sm-6 col-md-4 d-flex">
                     <x-ad-card :ad="$ad" />
                 </div>
                 @empty
-                <div class="col-12">
-                    <h3 class="text-center display-6 text-white">
+                <div class="col-12 text-center my-5">
+                    <h3 class="text-muted display-6">
                     {{__('ui.no_ads')}}
                     </h3>
                 </div>
