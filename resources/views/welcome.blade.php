@@ -1,15 +1,15 @@
 <x-layout>
     <x-display-message/>
     <!-- Hero Section -->
-    <header class="text-center py-5 ">
+    <header class="text-center py-5 bg-custom">
         <div class="container-fluid text-center">
             <div class="row vh-100 justify-content-center align-items-center">
                 <div class="col-12">
                     <h1 class="display-4">{{ __('ui.welcome') }}</h1>
-                    <p class="lead">{{ __('ui.find_or_post') }}</p>
+                    <p class="lead text-white fw-bold">{{ __('ui.find_or_post') }}</p>
                     @guest
                     <a href="{{ route('register') }}" class="btn btn-warning btn-lg">
-                    {{ __('ui.register_now') }}
+                    {{ __('ui.register') }}
                     </a>
                     @else
                     <a href="{{ route('create.ad') }}" class="btn btn-warning btn-lg">

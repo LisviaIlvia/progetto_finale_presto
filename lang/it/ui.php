@@ -8,7 +8,6 @@ return [
     'ratings' => 'Valutazioni',
     'welcome' => 'Presto.it',
     'find_or_post' => 'Trova o pubblica annunci in pochi secondi',
-    'register_now' => 'Registrati ora',
     'post_ad' => 'Pubblica annuncio',
     'latest_ads' => 'Ultimi Annunci',
     'no_ads' => 'Non sono ancora stati caricati articoli',
